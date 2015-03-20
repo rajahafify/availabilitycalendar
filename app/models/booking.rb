@@ -18,4 +18,8 @@ class Booking < ActiveRecord::Base
   validates :end_date, presence: true
 
   has_many :booking_calendars, dependent: :destroy
+
+  def dates
+    (self.start_date..self.end_date).to_a
+  end
 end

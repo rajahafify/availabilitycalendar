@@ -14,4 +14,8 @@ class BookingCalendar < ActiveRecord::Base
   validates :booking_id, presence: true
 
   belongs_to :booking
+
+  def self.unavailable_dates dates
+    self.where(starts_at: dates).pluck(:starts_at)
+  end
 end

@@ -11,7 +11,7 @@
 
 FactoryGirl.define do
   factory :booking_calendar do
-    starts_at DateTime.now.beginning_of_day
+    starts_at Date.today
     booking
   end
 end

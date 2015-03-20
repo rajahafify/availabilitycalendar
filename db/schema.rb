@@ -11,19 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320045846) do
+ActiveRecord::Schema.define(version: 20150320121418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_calendars", force: :cascade do |t|
+    t.date     "starts_at"
+    t.integer  "booking_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "booking_calendars", ["booking_id"], name: "index_booking_calendars_on_booking_id", using: :btree
+  add_index "booking_calendars", ["starts_at"], name: "index_booking_calendars_on_starts_at", unique: true, using: :btree
 
   create_table "bookings", force: :cascade do |t|
     t.string   "email",      null: false
     t.string   "name"
     t.string   "contact_no"
-    t.datetime "start_date", null: false
-    t.datetime "end_date",   null: false
+    t.date     "start_date", null: false
+    t.date     "end_date",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "booking_calendars", "bookings"
 end

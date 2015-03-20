@@ -17,7 +17,7 @@ FactoryGirl.define do
     email "email@example.com"
     name "MyString"
     contact_no "MyString"
-    start_date DateTime.now.beginning_of_day
-    end_date 3.days.from_now.end_of_day
+    start_date Date.today
+    end_date Date.today
   end
 end

@@ -49,4 +49,15 @@ RSpec.describe Booking, type: :model do
       expect(subject.booking_calendars.to_a).to be_include booking_calendar
     end
   end
+
+  describe "#dates" do
+    it "should return array of date" do
+      expect(booking.dates).to eql [Date.today]
+    end
+
+    it "should return multiple dates" do
+      booking.end_date = 2.days.from_now
+      expect(booking.dates).to eql [Date.today, 1.day.from_now.to_date, 2.days.from_now.to_date]
+    end
+  end
 end

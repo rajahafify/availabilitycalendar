@@ -44,4 +44,11 @@ RSpec.describe BookingCalendar, type: :model do
       expect(subject.booking).to eql booking
     end
   end
+
+  describe "BookingCalendar#unavailable_dates" do
+    it "should return array of unavailable_dates" do
+      booking_calendar = create :booking_calendar, starts_at: Date.today
+      expect(BookingCalendar.unavailable_dates([Date.today])).to eql [Date.today]
+    end
+  end
 end
