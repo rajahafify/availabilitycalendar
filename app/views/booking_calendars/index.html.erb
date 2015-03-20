@@ -1,0 +1,10 @@
+<div>
+  <%= month_calendar table: {class: "table table-bordered"}, events: @booking_calendars do |date, bookings| %>
+    <%= date %>
+    <% if bookings.present? %>
+      <%= link_to 'Unavailable', '#', class: 'btn btn-danger btn-block', disabled: true %>
+    <% else %>
+      <%= link_to 'Available', '#', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+</div>

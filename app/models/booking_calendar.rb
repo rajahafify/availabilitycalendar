@@ -15,6 +15,9 @@ class BookingCalendar < ActiveRecord::Base
 
   belongs_to :booking
 
+  extend SimpleCalendar
+  has_calendar
+
   def self.unavailable_dates dates
     self.where(starts_at: dates).pluck(:starts_at)
   end
