@@ -40,4 +40,13 @@ RSpec.describe Booking, type: :model do
       expect(subject).not_to be_valid
     end
   end
+
+  describe "associations" do
+    it "should has many booking calender" do
+      subject.save
+      booking_calendar = create :booking_calendar
+      subject.booking_calendars << booking_calendar
+      expect(subject.booking_calendars.to_a).to be_include booking_calendar
+    end
+  end
 end
