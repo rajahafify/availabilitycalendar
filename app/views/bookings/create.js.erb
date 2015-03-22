@@ -2,8 +2,8 @@
   $('#date-group').removeClass('has-error');
   $('#date-group .help-block').html('');
   $('form')[0].reset();
-  $('.calendar').html('<%= escape_javascript(render 'booking_calendars/calendar', calendar: BookingCalendar.all) %>');
   $('.modal').modal('hide');
+  $('.calendar').html('<%= escape_javascript(render 'booking_calendars/calendar', calendar: BookingCalendar.all) %>');
   $('.btn-form').on('click', function () {
     var date = $(this).data('date');
     $('#start_date_input').val(date);
