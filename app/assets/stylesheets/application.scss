@@ -14,6 +14,7 @@
  */
 
 @import "bootstrap";
+@import "bootstrap-datepicker3";
 
 body {
   padding: 20px;
@@ -23,6 +24,15 @@ table {
   tr, th {
     text-align: center;
   }
+
+  .today {
+    background: rgba(255,255,0,0.2);
+  }
+
+  .has-events {
+    color: red;
+    a {
+      color: red;
+    }
+  }
 } 
-
-

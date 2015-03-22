@@ -30,15 +30,11 @@ class BookingService
   def validate_availability 
     unavailable_dates = BookingCalendar.unavailable_dates(@booking.dates)
     if unavailable_dates.present?
-      invalidate_column(:start_date) if unavailable_dates.include?(@booking.start_date)
-      invalidate_column(:end_date) if unavailable_dates.include?(@booking.end_date)
+      @booking.errors.add(:start_date, "This dates is not available for bookings: #{unavailable_dates}")
+      @booking.errors.add(:end_date, "This dates is not available for bookings: #{unavailable_dates}")  
       return false
     else
       return true
     end
-  end
-
-  def invalidate_column column
-    @booking.errors.add(column, 'This date is unavailable for booking')
   end
 end

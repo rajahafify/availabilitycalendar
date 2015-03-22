@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem "simple_calendar", "~> 1.1.0"
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'html5_validators'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
