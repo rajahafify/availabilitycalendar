@@ -4,6 +4,11 @@
   $('form')[0].reset();
   $('.calendar').html('<%= escape_javascript(render 'booking_calendars/calendar', calendar: BookingCalendar.all) %>');
   $('.modal').modal('hide');
+  $('.btn-form').on('click', function () {
+    var date = $(this).data('date');
+    $('#start_date_input').val(date);
+    $('.modal').modal('show');
+  })
 <% else %>
   $('#date-group').addClass('has-error');
   $('#date-group .help-block').html('<%= escape_javascript(render 'booking_calendars/help_block.html.erb', booking: @booking) %>')

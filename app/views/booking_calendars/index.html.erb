@@ -3,14 +3,16 @@
 </div>
 <%= render 'booking_calendars/modal' %>
 <script>
-  $('.btn-form').on('click', function () {
-    var date = $(this).data('date');
-    $('#start_date_input').val(date);
-    $('.modal').modal();
-  })
-  $(".datepicker").datepicker({ 
-    startDate: '1d',
-    format: 'yyyy-mm-dd',
-    weekStart: 1
-  })
+  $(function(){
+    $('.btn-form').on('click', function () {
+      var date = $(this).data('date');
+      $('#start_date_input').val(date);
+      $('.modal').modal('show');
+    })
+    $(".datepicker").datepicker({ 
+      startDate: '1d',
+      format: 'yyyy-mm-dd',
+      weekStart: 1
+    })
+  });
 </script>
