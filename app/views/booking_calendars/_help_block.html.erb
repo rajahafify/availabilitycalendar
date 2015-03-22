@@ -1,0 +1,11 @@
+<% booking.errors.messages.each do |key, value| %>
+  <% if key == :dates %>
+    <% value.each do |k| %>
+      <p>
+        Dates not available: <%= k[:unavailable_dates].join(', ') %>
+      </p>
+    <% end %>
+  <% else %>
+    <p><%= value.join(', ') %></p>
+  <% end %>
+<% end %>

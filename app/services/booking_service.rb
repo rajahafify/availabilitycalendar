@@ -10,6 +10,7 @@ class BookingService
       if validate_availability
         @booking.save!
         book_dates
+        send_confirmation_email
       else
         return false
       end
@@ -20,6 +21,15 @@ class BookingService
   end
 
   private
+  def validate_availability 
+    unavailable_dates = BookingCalendar.unavailable_dates(@booking.dates)
+    if unavailable_dates.present?
+      @booking.errors.add(:dates, unavailable_dates: unavailable_dates.map{ |date| date.strftime('%d/%m/%Y')})
+      return false
+    else
+      return true
+    end
+  end
 
   def book_dates
     @booking.dates.each do |date|
@@ -27,14 +37,7 @@ class BookingService
     end
   end
 
-  def validate_availability 
-    unavailable_dates = BookingCalendar.unavailable_dates(@booking.dates)
-    if unavailable_dates.present?
-      @booking.errors.add(:start_date, "This dates is not available for bookings: #{unavailable_dates}")
-      @booking.errors.add(:end_date, "This dates is not available for bookings: #{unavailable_dates}")  
-      return false
-    else
-      return true
-    end
+  def send_confirmation_email
+    BookingMailer.booking_confirmation(@booking).deliver_now
   end
 end

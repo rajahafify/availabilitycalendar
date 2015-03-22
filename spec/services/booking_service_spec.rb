@@ -21,6 +21,11 @@ describe BookingService do
           @booking_service.call
         }.to change(BookingCalendar, :count).by 1
       end
+
+      it "should send booking booking_confirmation" do
+        @booking_service.call
+        expect(ActionMailer::Base.deliveries.last.to).to eql [booking.email]
+      end
     end
 
     context "invalid booking" do

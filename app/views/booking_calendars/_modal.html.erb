@@ -1,0 +1,36 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <%= form_for @booking, html: { class: 'form-horizontal' }, remote: true do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Reserve</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group" id="email-group">
+            <div class="col-xs-12">
+              <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            </div>
+          </div>
+          <div class="form-group" id="contact_no-group">
+            <div class="col-xs-12">
+              <%= f.text_field :contact_no, class: 'form-control', placeholder: 'Contact No (Optional)' %>
+            </div>
+          </div>
+          <div id="date-group" class="form-group" style="padding: 0 15px; margin-bottom: 0;">
+            <div class="input-daterange input-group"> 
+              <%= f.text_field :start_date, class: 'input-sm form-control datepicker', placeholder: 'Start', id: 'start_date_input' %>
+              <span class="input-group-addon">to</span>
+              <%= f.text_field :end_date, class: 'input-sm form-control datepicker', placeholder: 'End' %>
+            </div>
+            <div class="help-block"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit 'Create booking', class: 'btn btn-primary' %>
+        </div>
+      </div><!-- /.modal-content -->
+    <% end %>
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
