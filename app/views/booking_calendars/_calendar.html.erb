@@ -1,4 +1,4 @@
-<%= month_calendar table: {class: "table table-bordered"}, previous_link: previous_link, next_link: next_link, events: calendar do |date, bookings| %>
+<%= month_calendar table: {class: "table table-bordered"}, previous_link: previous_link, next_link: next_link, title: title, events: calendar do |date, bookings| %>
   <%= date %>
   <% if bookings.present? or date < Date.today %>
     <%= link_to 'Unavailable', '#', class: 'btn btn-link btn-block', disabled: true %>
