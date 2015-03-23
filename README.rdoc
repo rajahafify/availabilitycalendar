@@ -1,28 +1,37 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Congratulations!, you are now apart of the last and final stage of the interview 
+
+process at AV. As part of this test we would like you to build 
+
+something that is relevant to our business, and something that is rather 
+
+important in our industry as well, a availability calendar.
+
+This is how an availability calendar looks like : 
+
+http://www.villarivasamui.com/index.php?id=calendar
+
+Overview
+
+The availability system would have the availability dates for one property for a 
+
+certain period, for this test we shall assume 1 month. The calendar on the 
+
+frontend should display available and unavailable dates.
+
+A form such as : http://www.villarivasamui.com/reservation/ should be built as 
+
+well to take bookings. The form will be able to inform users when dates are 
+
+unavailable when they submit, if the dates are available the booking form will 
+
+send an email out with the booking details and update the calendar stating the 
+
+selected dates are unavailable, for future bookings.
+
+This should be written in Ruby on Rails and hosted on a free Heroku account. 
+
+Database used can be whichever free database available on Heroku at this point. 
+
+MongoDB is preferred. 
